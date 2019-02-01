@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: zuul-server
+server:
+  port: 5555
+eureka:
+  instance:
+    prefer-ip-address: true
+    ip-address: 192.168.98.173
+  client:
+    service-url:
+      defaultZone: http://localhost:8888/eureka/
+zuul:
+#  routes:
+#    client-a: /client/**
+#    client-a:     # 可以随便写，在zuul上面唯一即可；当这里的值 = service-id时，service-id可以不写。
+#      path: /client/**       #将所有/client开头的URL映射到client-a这个服务
+#      url: forward:/client
+#      serviceId: client-a
+#  prefix: /pre
+  ignored-services: client-a
+#  ignored-patterns: /**/client/**
+
