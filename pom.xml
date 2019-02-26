@@ -17,6 +17,7 @@
 
     <modules>
         <module>cloud-zuul-server-base</module>
+        <module>cloud-zuul-server-middle</module>
     </modules>
 
     <parent>
