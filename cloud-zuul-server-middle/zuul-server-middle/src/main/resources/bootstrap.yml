@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: zuul-server-middle
+server:
+  port: 5100
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://localhost:1000/eureka/
+zuul:
+  routes:
+    client-a: /client/**
+#    client-a:     # 可以随便写，在zuul上面唯一即可；当这里的值 = service-id时，service-id可以不写。
+#      path: /client/**       #将所有/client开头的URL映射到client-a这个服务
+#      url: forward:/client
+#      serviceId: client-a
+#  prefix: /pre
+#  ignored-services: client-a
+#  ignored-patterns: /**/client/**
+  sensitive-headers:    # 敏感头信息Cookie ,Set-Cookie,Authorization
+  add-host-header: true # 重定向问题  皮面下游服务暴露ip
+  retryable: true # 开启重试机制
+
