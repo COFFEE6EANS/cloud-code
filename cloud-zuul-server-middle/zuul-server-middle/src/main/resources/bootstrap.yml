@@ -12,14 +12,21 @@ eureka:
 zuul:
   routes:
     client-a: /client/**
-#    client-a:     # 可以随便写，在zuul上面唯一即可；当这里的值 = service-id时，service-id可以不写。
-#      path: /client/**       #将所有/client开头的URL映射到client-a这个服务
-#      url: forward:/client
-#      serviceId: client-a
-#  prefix: /pre
-#  ignored-services: client-a
-#  ignored-patterns: /**/client/**
   sensitive-headers:    # 敏感头信息Cookie ,Set-Cookie,Authorization
   add-host-header: true # 重定向问题  皮面下游服务暴露ip
-  retryable: true # 开启重试机制
+  retryable: true
+
+security:
+  basic:
+    enabled: false
+  oauth2:
+    client:
+      access-token-uri: http://localhost:7777/uaa/oauth/token #令牌端点
+      user-authorization-uri: http://locahost:7777/uaa/oauth/authorize #授权端点
+      client-id: zuul_server  #OAuth2 客户端ID
+      client-secret: secret #OAuth2 客户端秘钥
+    resource:
+      jwt:
+        key-value: springcloud123  #使用对称加密方式，默认算法HS256
+
 
