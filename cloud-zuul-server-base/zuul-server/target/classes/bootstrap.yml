@@ -20,4 +20,7 @@ zuul:
 #  prefix: /pre
   ignored-services: client-a
 #  ignored-patterns: /**/client/**
+  sensitive-headers:    # 敏感头信息Cookie ,Set-Cookie,Authorization
+  add-host-header: true # 重定向问题  皮面下游服务暴露ip
+  retryable: true # 开启重试机制
 

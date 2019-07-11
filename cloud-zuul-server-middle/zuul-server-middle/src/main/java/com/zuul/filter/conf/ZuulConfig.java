@@ -7,7 +7,7 @@ import com.zuul.filter.ThirdPreZuulFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-@Configuration
+//@Configuration
 public class ZuulConfig {
     @Bean
     public FirstPreZuulFilter firstPreZuulFilter(){

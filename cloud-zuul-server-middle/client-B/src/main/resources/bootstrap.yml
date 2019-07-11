@@ -1,10 +1,8 @@
-server:
-  port: 7777
-  servlet:
-    context-path: /uaa
 spring:
   application:
-    name: auth-server
+    name: client-b
+server:
+  port: 7001
 eureka:
   instance:
     prefer-ip-address: true
@@ -12,4 +10,3 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:1000/eureka/
-
